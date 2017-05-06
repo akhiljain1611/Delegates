@@ -1,0 +1,43 @@
+ class Program
+    {
+        static void Main(string[] args)
+        {
+            person p = new person();
+
+
+            //adddel ad1,ad2,ad3,ad4,ad5;
+            Action<int, int> ad1, ad2, ad3, ad4, ad5; //using action delegate with lambda Expression.
+            ad1 = (int a,int b)=> Console.WriteLine(a + b);
+            //ad1=(int a,int b)=> Console.WriteLine(a + b);
+            //ad1 = delegate (int a, int b)
+            //{ Console.WriteLine(a + b); };
+            ad2 = p.sub;
+             ad3 = ad1 + ad2;
+            ad3(10, 10);
+            ad4 = ad3 - ad1;
+            ad4(10, 10);
+           
+            Console.ReadLine();
+            
+        }
+    }
+     class person
+    {
+        //public void add(int a, int b)
+        //{
+        //    Console.WriteLine(a + b);
+        //}
+        public void sub(int a,int b)
+        {
+            Console.WriteLine(a-b);
+
+        }
+        public void mul(int a,int b)
+        {
+            Console.WriteLine(a*b);
+        }
+        public void test(adddel ad1)
+        {
+            ad1(10, 10);
+        }
+    }
