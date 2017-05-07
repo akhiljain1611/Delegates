@@ -1,0 +1,42 @@
+ class Program
+    {
+        static void Main(string[] args)
+        {
+            Person p = new Person();
+            p.CashEvent += P_CashEvent; //this make us the Suscriber
+            p.Addcash(50);
+            p.Addcash(200);
+            Console.ReadKey();
+        }
+
+        private static void P_CashEvent()
+        {
+            Console.WriteLine("hello");
+            Console.ReadKey();
+        }
+    }
+
+    class Person
+    {
+        public event myEventhandler CashEvent;
+        private int cash;
+
+        public int Cash
+        {
+            get { return cash; }
+            set { cash = value;
+                if(cash>=100)
+                {
+                    CashEvent();
+                }
+
+            }
+        }
+        public void Addcash(int amount)
+        {
+            Cash += amount;
+        }
+
+}
+
+//O/p hello
